@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="placesTableViewCell" rowHeight="91" id="LKi-oM-Xfo" customClass="PlacesTableViewCell" customModule="Foursquare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LKi-oM-Xfo" id="fjq-4Y-PNG">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-QM-X4e">
+                        <rect key="frame" x="12" y="13" width="290" height="20"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSColor" red="0.27450980392156865" green="0.1803921568627451" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="17" name="SFUIText-Medium"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttR-Nw-42H">
+                        <rect key="frame" x="12" y="41" width="306" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="iFv-c0-5Dg"/>
+                            <constraint firstAttribute="width" constant="306" id="tZN-cx-Pmc"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="15" name="SFUIText-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-2J-bUC">
+                        <rect key="frame" x="331" y="62" width="32" height="15"/>
+                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                        <color key="textColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ttR-Nw-42H" firstAttribute="top" secondItem="6sP-QM-X4e" secondAttribute="bottom" constant="8" id="0WR-Pi-XUG"/>
+                    <constraint firstItem="ttR-Nw-42H" firstAttribute="leading" secondItem="6sP-QM-X4e" secondAttribute="leading" id="Ax5-hl-GhD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ttR-Nw-42H" secondAttribute="trailing" constant="41" id="E8T-bu-OWC"/>
+                    <constraint firstItem="6sP-QM-X4e" firstAttribute="leading" secondItem="fjq-4Y-PNG" secondAttribute="leading" constant="12" id="EAE-GA-0rG"/>
+                    <constraint firstItem="6sP-QM-X4e" firstAttribute="top" secondItem="fjq-4Y-PNG" secondAttribute="top" constant="13" id="K41-Iw-3gN"/>
+                    <constraint firstAttribute="trailing" secondItem="6sP-QM-X4e" secondAttribute="trailing" constant="73" id="ToZ-1S-PJt"/>
+                    <constraint firstItem="ttR-Nw-42H" firstAttribute="top" secondItem="6sP-QM-X4e" secondAttribute="bottom" constant="8" symbolic="YES" id="dA4-Ij-HmV"/>
+                    <constraint firstAttribute="trailing" secondItem="mWg-2J-bUC" secondAttribute="trailing" constant="12" id="lNt-Jj-rhc"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ttR-Nw-42H" secondAttribute="bottom" constant="4" id="llE-Rw-cN4"/>
+                    <constraint firstAttribute="bottom" secondItem="mWg-2J-bUC" secondAttribute="bottom" constant="14.5" id="pPD-5S-hjb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="ttR-Nw-42H" id="Zyl-1n-JQS"/>
+                <outlet property="countryLabel" destination="mWg-2J-bUC" id="tff-1h-AUE"/>
+                <outlet property="placeNameLabel" destination="6sP-QM-X4e" id="Mjq-nm-Xhh"/>
+            </connections>
+            <point key="canvasLocation" x="13.6" y="-26.986506746626688"/>
+        </tableViewCell>
+    </objects>
+</document>
