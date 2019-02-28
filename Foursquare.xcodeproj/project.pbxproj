@@ -32,6 +32,7 @@
 		9AF7F4D02227760200F1D0BA /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4CC2227760200F1D0BA /* PhotoResponse.swift */; };
 		9AF7F4D12227760200F1D0BA /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4CD2227760200F1D0BA /* PhotoItem.swift */; };
 		9AF7F4D22227760200F1D0BA /* PhotoSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4CE2227760200F1D0BA /* PhotoSearchResponse.swift */; };
+		9AF7F4D42227786900F1D0BA /* TipsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4D32227786900F1D0BA /* TipsViewModel.swift */; };
 		BCAB830420104CCCFCBFDC8D /* Pods_Foursquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BC2ED98A15A8EDBBB61573 /* Pods_Foursquare.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		9AF7F4CC2227760200F1D0BA /* PhotoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		9AF7F4CD2227760200F1D0BA /* PhotoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		9AF7F4CE2227760200F1D0BA /* PhotoSearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchResponse.swift; sourceTree = "<group>"; };
+		9AF7F4D32227786900F1D0BA /* TipsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsViewModel.swift; sourceTree = "<group>"; };
 		C58D7E8D9DC751436F85437C /* Pods-Foursquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foursquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Foursquare/Pods-Foursquare.debug.xcconfig"; sourceTree = "<group>"; };
 		D3ACF70904DEE4C166BB3E21 /* Pods-Foursquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foursquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foursquare/Pods-Foursquare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +148,7 @@
 		9A51359022133C0800CD1EA6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9AF7F4D32227786900F1D0BA /* TipsViewModel.swift */,
 				9AE82EB42214D35E0011ADEF /* PlacesViewModel.swift */,
 			);
 			path = ViewModel;
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF7F4D42227786900F1D0BA /* TipsViewModel.swift in Sources */,
 				9AC4EC532214B8D600B23408 /* PlacesViewController.swift in Sources */,
 				9A5135932213717800CD1EA6 /* FoursquareAPIManager.swift in Sources */,
 				9A4181B7221A0E4D00DA3384 /* Category.swift in Sources */,
