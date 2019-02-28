@@ -10,8 +10,13 @@ import UIKit
 import SVProgressHUD
 import CoreLocation
 
+protocol PlacesDelegate {
+    func tipsReceived(tips: Tip, photos: Photo, currentVenue: Venue)
+}
+
 class PlacesViewController: UITableViewController, MainPageDelegate {
     private var venuesArray = [Venue]()
+    private var delegate: PlacesDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +24,7 @@ class PlacesViewController: UITableViewController, MainPageDelegate {
         tableView.register(UINib(nibName: "PlacesTableViewCell", bundle: nil) , forCellReuseIdentifier: "placesTableViewCell")
     }
     
-    //MARK: MainPage Delegate Methods.
+    //MARK: MainPage delegate methods
     func venuesReceived(venues: [Venue]) {
         self.venuesArray = venues
     }
@@ -34,6 +39,56 @@ extension PlacesViewController {
         cell.addressLabel.text = placesViewModel.addressString
         cell.countryLabel.text = placesViewModel.countryString
         cell.placeNameLabel.text = placesViewModel.placeNameString
+    }
+    /// Makes an API call through foursquareAPIManager object.
+    ///
+    /// - parameter venue: Venue object of a place.
+    private func searchVenueTipsWith(venue: Venue) {
+        FoursquareAPIManager.sharedInstance.getVenueTipsWith(venueId: venue.venueId) { (result) in
+            switch result {
+            case let .success(tips):
+                FoursquareAPIManager.sharedInstance.getPhotosWith(venueId: venue.venueId, completion: { (result) in
+                    switch result {
+                    case let .success(photos):
+                        let tipsView = TipsView()
+                        self.delegate = tipsView
+                        
+                        self.delegate?.tipsReceived(tips: tips, photos: photos, currentVenue: venue)
+                        self.present(tipsView, animated: true)
+                        SVProgressHUD.dismiss()
+                    case let .failure(error):
+                        guard let error = error as? FoursquareAPIManagerError else {
+                            return SVProgressHUD.showError(withStatus: "Unexpected error occured")
+                        }
+                        
+                        switch error {
+                        case .unexpectedResponseError:
+                            return SVProgressHUD.showError(withStatus: "Unexpected response")
+                        case .connectionError(_):
+                            return SVProgressHUD.showError(withStatus: "Connection error")
+                        case .responseParseError(_), .apiError(_), .jsonDecodingError(_), .categoryNotFoundError, .categoryResponseEmptyError: break
+                        }
+                        
+                        SVProgressHUD.showError(withStatus: "Failed with error")
+                    }
+                })
+                
+            case let .failure(error):
+                guard let error = error as? FoursquareAPIManagerError else {
+                    return SVProgressHUD.showError(withStatus: "Unexpected error occured")
+                }
+                
+                switch error {
+                case .unexpectedResponseError:
+                    return SVProgressHUD.showError(withStatus: "Unexpected response")
+                case .connectionError(_):
+                    return SVProgressHUD.showError(withStatus: "Connection error")
+                case .responseParseError(_), .apiError(_), .jsonDecodingError(_), .categoryNotFoundError, .categoryResponseEmptyError: break
+                }
+                
+                SVProgressHUD.showError(withStatus: "Failed with error")
+            }
+        }
     }
     //MARK: - Tableview datasource methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +108,11 @@ extension PlacesViewController {
         
         return cell
     }
-    //MARK: - TableView Delegate Methods.
+    //MARK: - TableView delegate methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchVenueTipsWith(venue: venuesArray[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        SVProgressHUD.show()
     }
 }

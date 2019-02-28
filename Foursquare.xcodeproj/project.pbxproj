@@ -33,6 +33,10 @@
 		9AF7F4D12227760200F1D0BA /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4CD2227760200F1D0BA /* PhotoItem.swift */; };
 		9AF7F4D22227760200F1D0BA /* PhotoSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4CE2227760200F1D0BA /* PhotoSearchResponse.swift */; };
 		9AF7F4D42227786900F1D0BA /* TipsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4D32227786900F1D0BA /* TipsViewModel.swift */; };
+		9AF7F4D92227798B00F1D0BA /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4D72227798B00F1D0BA /* TipsView.swift */; };
+		9AF7F4DA2227798B00F1D0BA /* TipsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7F4D82227798B00F1D0BA /* TipsView.xib */; };
+		9AF7F4DD222779B200F1D0BA /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7F4DB222779B200F1D0BA /* Slide.xib */; };
+		9AF7F4DE222779B200F1D0BA /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7F4DC222779B200F1D0BA /* Slide.swift */; };
 		BCAB830420104CCCFCBFDC8D /* Pods_Foursquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BC2ED98A15A8EDBBB61573 /* Pods_Foursquare.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,10 @@
 		9AF7F4CD2227760200F1D0BA /* PhotoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
 		9AF7F4CE2227760200F1D0BA /* PhotoSearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchResponse.swift; sourceTree = "<group>"; };
 		9AF7F4D32227786900F1D0BA /* TipsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsViewModel.swift; sourceTree = "<group>"; };
+		9AF7F4D72227798B00F1D0BA /* TipsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		9AF7F4D82227798B00F1D0BA /* TipsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsView.xib; sourceTree = "<group>"; };
+		9AF7F4DB222779B200F1D0BA /* Slide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		9AF7F4DC222779B200F1D0BA /* Slide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		C58D7E8D9DC751436F85437C /* Pods-Foursquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foursquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Foursquare/Pods-Foursquare.debug.xcconfig"; sourceTree = "<group>"; };
 		D3ACF70904DEE4C166BB3E21 /* Pods-Foursquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foursquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foursquare/Pods-Foursquare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +173,8 @@
 		9AC4EC4E22145A8300B23408 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9AF7F4D62227795600F1D0BA /* TipsView */,
+				9AF7F4D52227794C00F1D0BA /* Slide */,
 				9AC4EC4F2214B77D00B23408 /* PlacesTableViewCell */,
 				9A513580221321C400CD1EA6 /* Main.storyboard */,
 				9A513585221321C500CD1EA6 /* LaunchScreen.storyboard */,
@@ -212,6 +222,24 @@
 				9AF7F4C62227743700F1D0BA /* TipSearchResponse.swift */,
 			);
 			path = Tip;
+			sourceTree = "<group>";
+		};
+		9AF7F4D52227794C00F1D0BA /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				9AF7F4DC222779B200F1D0BA /* Slide.swift */,
+				9AF7F4DB222779B200F1D0BA /* Slide.xib */,
+			);
+			path = Slide;
+			sourceTree = "<group>";
+		};
+		9AF7F4D62227795600F1D0BA /* TipsView */ = {
+			isa = PBXGroup;
+			children = (
+				9AF7F4D72227798B00F1D0BA /* TipsView.swift */,
+				9AF7F4D82227798B00F1D0BA /* TipsView.xib */,
+			);
+			path = TipsView;
 			sourceTree = "<group>";
 		};
 		CFF5B16AEF841284DF4A105B /* Frameworks */ = {
@@ -291,10 +319,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF7F4DA2227798B00F1D0BA /* TipsView.xib in Resources */,
 				9A513587221321C500CD1EA6 /* LaunchScreen.storyboard in Resources */,
 				9A513584221321C500CD1EA6 /* Assets.xcassets in Resources */,
 				9A513582221321C400CD1EA6 /* Main.storyboard in Resources */,
 				9AC4EC4D22145A7C00B23408 /* PlacesTableViewCell.xib in Resources */,
+				9AF7F4DD222779B200F1D0BA /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +389,8 @@
 				9AF7F4D02227760200F1D0BA /* PhotoResponse.swift in Sources */,
 				9AF7F4D12227760200F1D0BA /* PhotoItem.swift in Sources */,
 				9A51359B2213F33100CD1EA6 /* Location.swift in Sources */,
+				9AF7F4DE222779B200F1D0BA /* Slide.swift in Sources */,
+				9AF7F4D92227798B00F1D0BA /* TipsView.swift in Sources */,
 				9A4181B5221A0E4D00DA3384 /* CategoryResponse.swift in Sources */,
 				9AF7F4CF2227760200F1D0BA /* Photo.swift in Sources */,
 				9AE82EB32214C7B60011ADEF /* VenueResponse.swift in Sources */,
