@@ -40,7 +40,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         // If city text length is less than 3 chars.
         guard let cityNameText = cityTextField.text,
             cityNameText.count <= 0 || cityNameText.count >= 3 else {
-            return SVProgressHUD.showError(withStatus: "City must be at least 3 character long")
+                return SVProgressHUD.showError(withStatus: "City must be at least 3 character long")
         }
         
         // Search venue with city name.
@@ -168,10 +168,15 @@ extension MainPageViewController: CLLocationManagerDelegate {
                     return SVProgressHUD.showError(withStatus: "Could not fetch categories")
                 case .connectionError(_):
                     return SVProgressHUD.showError(withStatus: "Connection error")
-                case .responseParseError(_), .apiError(_), .jsonDecodingError(_): break
+                case let .apiError(error):
+                    if error.errorType.compare("failed_geocode", options: .caseInsensitive) == ComparisonResult.orderedSame {
+                        return SVProgressHUD.showError(withStatus: "Could not find city name")
+                    } else {
+                        SVProgressHUD.showError(withStatus: "Failed with API error")
+                    }
+                case .responseParseError(_), .jsonDecodingError(_):
+                    SVProgressHUD.showError(withStatus: "Failed with error")
                 }
-                
-                SVProgressHUD.showError(withStatus: "Failed with error")
             }
         }
     }
@@ -204,10 +209,15 @@ extension MainPageViewController: CLLocationManagerDelegate {
                     return SVProgressHUD.showError(withStatus: "Could not fetch categories")
                 case .connectionError(_):
                     return SVProgressHUD.showError(withStatus: "Connection error")
-                case .responseParseError(_), .apiError(_), .jsonDecodingError(_): break
+                case let .apiError(error):
+                    if error.errorType.compare("failed_geocode", options: .caseInsensitive) == ComparisonResult.orderedSame {
+                        return SVProgressHUD.showError(withStatus: "Could not find city name")
+                    } else {
+                        SVProgressHUD.showError(withStatus: "Failed with API error")
+                    }
+                case .responseParseError(_), .jsonDecodingError(_):
+                    SVProgressHUD.showError(withStatus: "Failed with error")
                 }
-                
-                SVProgressHUD.showError(withStatus: "Failed with error")
             }
         }
     }
