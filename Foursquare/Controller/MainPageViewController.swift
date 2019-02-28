@@ -96,10 +96,14 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Text Field Delegate Methods.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet.letters
-        let characterSet = CharacterSet(charactersIn: string)
-        // Allows only aplhabetic characters
-        return allowedCharacters.isSuperset(of: characterSet)
+        if textField == categoryTextField {
+            let allowedCharacters = CharacterSet.letters.union(CharacterSet.whitespaces)
+            let characterSet = CharacterSet(charactersIn: string)
+            // Allows only alphabetic characters
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        
+        return true
     }
 }
 
