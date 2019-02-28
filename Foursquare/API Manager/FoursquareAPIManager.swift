@@ -203,6 +203,66 @@ class FoursquareAPIManager {
             }
         }
     }
+    /// Makes an API call with a venue ID.
+    ///
+    /// - parameter city: ID of a venue.
+    public func getVenueTipsWith(venueId: String, completion: @escaping (_ result: Result<Tip>) -> Void) {
+        let parameters = [
+            "client_id" : self.clientId,
+            "client_secret" : self.clientSecret,
+            "v" :  self.version
+        ]
+        
+        self.getJSONFrom(urlString:self.APIUrl, path: "/venues/\(venueId)/tips", parameters: parameters) { (result) in
+            switch result {
+            case let .success(data):
+                self.createResponseObjectWith(json: data, decodingModel: .tip, completion: { (result) in
+                    switch result {
+                    case let .success(data):
+                        guard let data = data as? TipSearchResponse else {
+                            return completion(Result.failure(FoursquareAPIManagerError.unexpectedResponseError))
+                        }
+                        
+                        completion(Result.success(data.response.tips))
+                    case let .failure(error):
+                        completion(Result.failure(error))
+                    }
+                })
+            case let .failure(error):
+                completion(Result.failure(error))
+            }
+        }
+    }
+    /// Makes an API call with a venue ID.
+    ///
+    /// - categoryName : ID of a venue.
+    public func getPhotosWith(venueId: String, completion: @escaping (_ result: Result<Photo>) -> Void) {
+        let parameters = [
+            "client_id" : self.clientId,
+            "client_secret" : self.clientSecret,
+            "v" :  self.version
+        ]
+        
+        getJSONFrom(urlString:APIUrl, path: "/venues/\(venueId)/photos", parameters: parameters) { (result) in
+            switch result {
+            case let .success(data):
+                self.createResponseObjectWith(json: data, decodingModel: .photo, completion: { (result) in
+                    switch result {
+                    case let .success(data):
+                        guard let data = data as? PhotoSearchResponse else {
+                            return completion(Result.failure(FoursquareAPIManagerError.unexpectedResponseError))
+                        }
+                        
+                        completion(Result.success(data.response.photos))
+                    case let .failure(error):
+                        completion(Result.failure(error))
+                    }
+                })
+            case let .failure(error):
+                completion(Result.failure(error))
+            }
+        }
+    }
 }
 
 extension FoursquareAPIManager {
@@ -210,6 +270,8 @@ extension FoursquareAPIManager {
     public enum DecodingModel {
         case category
         case venue
+        case tip
+        case photo
     }
     /// Makes an HTTP GET request.
     ///
@@ -260,6 +322,10 @@ extension FoursquareAPIManager {
                 response = try decoder.decode(VenueSearchResponse.self, from: json)
             case .category:
                 response = try decoder.decode(CategorySearchResponse.self, from: json)
+            case .tip:
+                response = try decoder.decode(TipSearchResponse.self, from: json)
+            case .photo:
+                response = try decoder.decode(PhotoSearchResponse.self, from: json)
             }
             
             return completion(Result.success(response))
